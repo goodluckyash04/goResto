@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online food Order Service</title>
+  </head>
+
+  <style>
+    div {
+      background-color: blueviolet;
+      color: rgb(4, 18, 31);
+      padding: 10px;
+    }
+    h1 {
+      background-color: brown;
+      color: aliceblue;
+      text-align: center;
+      margin: 0 0 5px 0;
+      height: 70px;
+    }
+    h2 {
+      color: aliceblue;
+      text-align: center;
+    }
+    table {
+      text-align: center;
+      margin: 58px auto;
+    }
+    table,
+    th,
+    td,
+    tr {
+      background-color: beige;
+      border-bottom: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+      min-width: 100px;
+      font-size: 20px;
+    }
+    input[type="text"] {
+      width: 85px;
+      padding: 5px;
+      border: none;
+    }
+    button {
+      background-color: rgb(174, 5, 5);
+      color: white;
+      border-radius: 10px;
+      font-size: large;
+      width: 28px;
+      height: 27px;
+    }
+    button:hover {
+      cursor: pointer;
+    }
+    #order {
+      background-color: blue;
+      color: white;
+      border-radius: 10px;
+      width: fit-content;
+      height: 47px;
+      cursor: pointer;
+    }
+    .x,
+    .y {
+      margin-bottom: 2px;
+    }
+    .x {
+      background-color: green;
+    }
+    #subtotal {
+      font-weight: bold;
+    }
+    .input {
+      text-align: center;
+    }
+
+    #additem {
+      width: fit-content;
+      padding: 7px;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+    #addbtn {
+      width: 50px;
+      height: 37px;
+      margin-left: 5px;
+      background-color: crimson;
+    }
+    p {
+      text-align: center;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    @media screen and (max-width: 718px) {
+      table,
+      th,
+      td,
+      tr {
+        background-color: beige;
+        border-bottom: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px 0;
+        min-width: fit-content;
+        font-size: auto;
+      }
+    }
+    .mod button {
+      background-color: rgb(174, 5, 5);
+      color: white;
+      border-radius: 10px;
+      font-size: large;
+      width: fit-content;
+      height: fit-content;
+    }
+    .modal-body {
+      background-color: rgb(207, 244, 244);
+    }
+    .modal-title {
+      color: white;
+    }
+  </style>
+
+  <body>
+    <div>
+      <h1>GO-FOOD Restaurant</h1>
+      <h2>Go-Food Cart</h2>
+    </div>
+
+    <div class="input">
+      <input list="menu" name="additem" id="additem" placeholder="Add Item" />
+      <datalist id="menu">
+        <option value="Paneer Tikka"></option>
+        <option value="Paneer Chilly"></option>
+        <option value="Veg Manchurian"></option>
+        <option value="Hakka Noodles"></option>
+        <option value="Hara Bhara Kabab"></option>
+        <option value="Veg Toofani"></option>
+        <option value="Veg Handi"></option>
+        <option value="Paner Chatpata"></option>
+        <option value="Kaju Curry"></option>
+        <option value="Kaju Masala"></option>
+        <option value="Sandwich"></option>
+        <option value="Pizza"></option>
+        <option value="Veg Pulao"></option>
+        <option value="Heydrabadi Biryani"></option>
+        <option value="Jeera Rice"></option>
+        <option value="Dal Fry"></option>
+        <option value="Butter Roti"></option>
+        <option value="Butter Naan"></option>
+        <option value="Tandoori Paratha"></option>
+        <option value="Roasted Papad"></option>
+        <option value="Masala Papad"></option>
+      </datalist>
+
+      <button id="addbtn" onclick="addItem()">Add</button>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <th colspan="2">Product Info</th>
+          <th>Quantity<br />Nos.</th>
+          <th>Price<br />(per Unit)₹</th>
+          <th>Total Price<br />₹</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <button class="x" onclick="add(this)">+</button><br />
+              <button onclick="remove(this)" class="y">-</button>
+            </td>
+            <td>Goodluck Vegetable Sandwich</td>
+            <td>1</td>
+            <td>149</td>
+            <td>149</td>
+            <td><button onclick="reset(this)">X</button></td>
+          </tr>
+          <tr>
+            <td>
+              <button class="x" onclick="add(this)">+</button><br />
+              <button onclick="remove(this)" class="y">-</button>
+            </td>
+            <td>Veg Chef's Special Burger</td>
+            <td>1</td>
+            <td>149</td>
+            <td>149</td>
+            <td><button onclick="reset(this)">X</button></td>
+          </tr>
+          <tr>
+            <td>
+              <button class="x" onclick="add(this)">+</button><br />
+              <button onclick="remove(this)" class="y">-</button>
+            </td>
+            <td>Raspberry Stuffed Toast</td>
+            <td>1</td>
+            <td>199</td>
+            <td>199</td>
+            <td><button onclick="reset(this)">X</button></td>
+          </tr>
+          <tr>
+            <td>
+              <button class="x" onclick="add(this)">+</button><br />
+              <button onclick="remove(this)" class="y">-</button>
+            </td>
+            <td>Butter-Milk</td>
+            <td>1</td>
+            <td>30</td>
+            <td>30</td>
+            <td><button onclick="reset(this)">X</button></td>
+          </tr>
+
+          <tr>
+            <th colspan="4" align="right">Sub Total &nbsp;&nbsp;₹</th>
+            <td id="subtotal">507</td>
+            <td><button id="order" onclick="msg()">Order Now</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>
+        -----------------------------------------------------------------------------------------------
+      </h2>
+      <h2>Order History</h2>
+      <h2>
+        -----------------------------------------------------------------------------------------------
+      </h2>
+      <p style="color: greenyellow"><b>July 2022</b></p>
+      <div id="orderhistory">
+        <p style="color: greenyellow"><b>June 2022</b></p>
+        <p>
+          - order of ₹ 1125 is placed <br />
+          <a href="#" style="color: rgb(222, 182, 81)">Invoice</a>
+        </p>
+        <p>
+          - order of ₹ 106 is placed <br /><a
+            href="#"
+            style="color: rgb(222, 182, 81)"
+            >Invoice</a
+          >
+        </p>
+        <p>
+          - order of ₹ 340 is placed <br /><a
+            href="#"
+            style="color: rgb(222, 182, 81)"
+            >Invoice</a
+          >
+        </p>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function subtotal() {
+      /* ........Calculating subTotal.........*/
+      let body = document.getElementsByTagName("tbody")[0];
+      let l = body.childElementCount - 1;
+      var sum = 0;
+      for (let i = 0; i < l; i++) {
+        sum += parseFloat(body.children[i].children[4].textContent);
+      }
+      var subtot = document.getElementById("subtotal");
+      subtot.textContent = sum;
+      /* ........Formatting Order Now Button.........*/
+      let button = document.getElementById("order");
+      if (sum > 49) {
+        button.style.backgroundColor = "blue";
+        button.style.cursor = "pointer";
+      } else {
+        button.style.backgroundColor = "gray"; //"rgba(0, 0, 139, 0.337)";
+        button.style.cursor = "none";
+      }
+    }
+    /* ........Calculating Total.........*/
+
+    function total(x) {
+      let z = x.parentElement.parentElement;
+      let quantity = z.children[2].textContent;
+      let price = z.children[3].textContent;
+      let total = price * quantity;
+      z.children[4].textContent = total;
+      subtotal();
+    }
+    //..................reset quantity.................//
+    function reset(x) {
+      let z = x.parentElement.parentElement.remove();
+
+      // or to only reset quantity
+      //     let z=x.parentElement.parentElement.children[2]
+      //         if(z.textContent>0){
+      //             z.textContent=0;
+      //             total(x)
+      //         }
+      subtotal();
+    }
+
+    /* ........Calculating + & - quantity.........*/
+
+    function add(x) {
+      let z = x.parentElement.parentElement.children[2];
+      let a = z.textContent;
+      let newa = parseInt(a) + 1;
+      z.textContent = newa;
+      total(x);
+    }
+
+    function remove(x) {
+      let z = x.parentElement.parentElement.children[2];
+      let a = z.textContent;
+      if (a > 0) {
+        let newa = parseInt(a) - 1;
+        z.textContent = newa;
+      }
+      total(x);
+    }
+
+    function addItem() {
+      let subt = document.getElementsByTagName("tbody")[0];
+      let input = document.getElementById("additem");
+      let inputValue = input.value;
+      let randomPrice = Math.floor(Math.random() * (300 - 20 + 1) + 20);
+      let newtr = document.createElement("tr");
+      newtr.innerHTML = ` <td>
+                        <button class="x" onclick="add(this)">+</button><br>
+                         <button onclick="remove(this)" class="y">-</button>
+                        </td>
+                      <td >${inputValue}</td>
+                            <td>1</td>
+                      <td >${randomPrice}</td>
+                      <td >${randomPrice}</td>
+                      <td><button onclick="reset(this)" >X</button></td>`;
+      if (inputValue != 0) {
+        subt.insertBefore(newtr, subt.children[0]);
+      }
+      subtotal();
+      input.value = null;
+    }
+    function msg() {
+      // let table=document.getElementsByTagName("table")[0].parentElement
+      let table = document.getElementById("orderhistory");
+      let a = document.getElementById("subtotal").textContent;
+      if (a > 49) {
+        let k = prompt(
+          `Final Amount to be paid is ${a} ₹,\n(press y to procced)`
+        );
+        if (k == "y" || k == "Y") {
+          alert(
+            `Your order of ₹ ${a} is successfully placed.\n Thanks for ordering..Your order will Arive Shortly.`
+          );
+          let x = document.createElement("p");
+          x.innerHTML = `- order of ₹ ${a} is placed <br> <a href="#" style="color:rgb(222, 182, 81);">Invoice</a>`;
+          table.prepend(x);
+        } else {
+          alert("please try again");
+        }
+      } else {
+        alert("Min Bill-total should be more than ₹ 49");
+      }
+    }
+  </script>
+</html>

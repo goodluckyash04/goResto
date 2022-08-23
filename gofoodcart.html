@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <title>Online food delivery sevices</title>
+                        <!-- ..................My CSS................... -->
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: beige;
+}
+.btnmain{
+    border: none;
+    transition: none;
+}
+.btnmain:hover{
+    border: none;
+    text-decoration: underline;
+}
+.btnmain:active{
+    border: none;
+    text-decoration: underline;
+}
+.titlename{
+    padding: 10px 0;
+    text-align: center;
+    background-color: brown;
+    color: white;
+}
+#clearall{
+    text-decoration: none;
+    color: rgb(92, 36, 36);
+    font-weight: 600;
+    
+}
+.orderitems{
+    border-bottom: 0.08rem solid rgba(219, 216, 216, 0.758);
+}
+.orderdetail{
+    background-color: beige;
+    min-height: 50vh;
+}
+#clearall:hover{
+    text-decoration: underline;
+}
+.pfont{
+    padding-left: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 200;
+    display: inline-block;
+}
+.prfont{
+    font-size: 1.5rem;
+    font-weight: 200;
+    display: inline-block;
+}
+span{
+    padding:0 0.5rem;
+    font-size: 1.2rem;
+}
+.editbtn{
+    width: 2.33rem;
+    height: 2.32rem;
+    border: 0;
+    margin: 0;
+    background-color: brown;
+    color: white;
+}
+#quantity input[type=text]{
+    margin:0;
+    width: 2.33rem;
+    height: 2.32rem;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(165, 42, 42, 0.89);
+    border-bottom: 2px solid brown;
+}
+#addressdetail{
+    margin-top: 40px;
+}
+.addetail{
+    text-align: justify;
+    
+}
+.addetail p{
+    max-height: 7rem;
+    overflow: auto;
+}
+.addetail a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: brown;
+}
+#promo{
+    border: none;
+    padding:1.4rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    background-color: rgb(216, 205, 192);
+    border-radius: 1rem;
+    width: 30vw;
+    justify-content: center;
+    /* margin:1rem 16rem ; */
+}
+#promo:hover{
+    outline: 0.08rem solid grey;
+}
+.stotal{
+    margin-top:2.5rem;
+    /* border: 1px solid rgba(165, 42, 42, 0.224); */
+}
+#subtotal{
+    font-size: 2rem;
+    display: inline-block;
+    margin-bottom: 0.700rem;
+    color: brown
+}
+.paynow{
+    margin: 4rem 0 2rem;
+   text-align: center; 
+}
+#payorder{
+    width: 70vw;
+    height: 8vh;
+}
+
+#exampleModal{
+   border-radius: 10px; 
+   border: 1px solid grey;
+   position: absolute;
+   top: 15rem;
+   left:15vw;
+   padding:1rem;
+   background-color: rgb(253, 247, 201);
+}
+.modal-body{
+    padding: 0.5rem 0;
+    font-size: 1rem;
+}
+.modal-footer{
+    justify-content: space-between;
+}
+.invoicefont{
+    font-size: 1.2rem;
+    font-weight: 200;
+    display: inline-block;
+}
+#emptydiv{
+    font-size: 1.2rem;
+    font-weight: 200;   
+    text-align: center;
+}
+    </style>
+</head>
+                        <!-- ..................Content.................. -->
+<body>
+    <header class="sticky-top">
+        <div class="container-fluid titlename">
+            <h1>GO-FOOD Restaurant</h1>
+        </div>
+    </header>
+    <section class="orderdetail mt-3 pt-3">
+        <div class="container-fluid" >
+            <div class="row mb-3 justify-content-center">
+                <div class="col-8 ">
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="menu" onchange="change(this)" aria-label="Default select example">
+                            <option hidden disabled selected value >Add Items</option>
+                            <optgroup label="Starters">
+                              <option value=120>Mashroom Soup</option>
+                              <option value=160>Hakka Noodles</option>
+                              <option value=180>Veg Manchurian</option>
+                              <option value=200>HaraBhara Kabab</option>
+                              <option value=280>Paneer Chilly</option>
+                              <option value=300>Paneer Tikka</option>
+                            </optgroup>
+                            <optgroup label="Main Course">
+                              <option value=159>Veg Handi</option>
+                              <option value=210>Veg Toofani</option>
+                              <option value=239>Paneer Cofta</option>
+                              <option value=250>Paneer Chatpata</option>
+                              <option value=270>Kaju Curry</option>
+                              <option value=285>Kaju Masala</option>
+                            </optgroup>
+                            <optgroup label="Fast Food">
+                              <option value=160>Classic Veg Sandwich</option>
+                              <option value=180>Margherita Pizza</option>
+                              <option value=180>Veg Burger</option>
+                            </optgroup>
+                            <optgroup label="Rice">
+                              <option value=110>Jeera Rice</option>
+                              <option value="140">Veg Pulao</option>
+                              <option value="220">Heydrabadi Biryani</option>
+                              <option value="150">Dal Fry</option>
+                            </optgroup>
+                            <optgroup label="Sides">
+                              <option value="15">Butter Roti</option>
+                              <option value="25">Butter Naan</option>
+                              <option value="30">Tandoori Paratha</option>
+                              <option value="20">Roasted Papa </option>
+                              <option value="50">Masala Papad</option>
+                            </optgroup>
+                          </select>
+                        <button class="btn btn-outline-success ms-2" type="button" id="additem" onclick="addItem()">ADD</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Your Order Details</h3>
+            </div>
+        </div>
+        <!-- .....2nd Child.......... -->
+        <div class="container" >
+            <div class="row mt-2 text-center" >
+                <div class="col-5 text-start">
+                     <h4>Your Order</h4>
+                </div>
+                <div class="col-1 "></div>
+                <div class="col-6 text-end">
+                    <button class="btn btnmain" id="clearall">CLEAR ALL</button>
+                </div>
+            </div>
+            
+            <div class="container" id="empty">
+                <div id="productlist">
+                    <div class="del">
+                        <div class="row pt-2 orderitems" >
+                            <div class="col-12 col-sm-5 col-md-6 itemName text-start">
+                                <div class="row">
+                                    <div class="col-8 col-sm-7 col-md-8">
+                                        <p class="pfont">Paneer Handi</p>
+                                    </div>
+                                    <div class="col-4 col-sm-5 col-md-4 text-center" >
+                                        <span>₹</span><p class="prfont" id="price">159</p>   
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="col-8 col-sm-4 col-md-3 text-center" id="quantity">
+                                <button class="editbtn" id="minus" onclick="minus(this)">-</button>
+                                <input type="text" name="quantity" value="1" id="qunat">
+                                <button class="editbtn" id="plus" onclick="add(this)">+</button>  
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-3 text-center" >
+                                <span>₹</span><p class="prfont total" id="total">159</p>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container stotal">
+                <div class="row">
+                    <div class="col-8 text-end align-self-center">
+                        <h3>Total Payable :</h3>
+                    </div>
+                    <div class="col-4 text-center align-self-center p-0">
+                        <span>₹</span><p id="subtotal" >159</p>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </section>
+    <!-- .................Address and offer Section ...............-->
+    <section id="addressdetail">
+        <div class="container-fluid address">
+            <h2>Address Details</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 addetail" >
+                        <button class="btn btnmain" id="edit" onclick="edit()">Edit</button>
+                        <textarea class="form-control" name="address" id="address" cols="75" rows="7" placeholder="Enter Your Address" disabled>301 Jeevandeep Complex, Ring Rd, next to Nirmal Hospital, Surat, Gujarat 395002.LANDMARK:</textarea>
+                    </div> 
+
+                    <div class="col-6 text-center align-self-center">
+                    <button id="promo" onclick="offer()"><small>Apply Promo </small><br><b>GOFO15</b></button>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="paynow">
+                <button class="btn btn-outline-primary ms-2" type="button" id="payorder" onclick="pay()">PAY ₹ <b>159</b></button>
+            </div>
+        </div>
+     </section>   
+        <!-- <dialog id="exampleModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Warning!</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Do You Want to remove the Item?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+                      <button type="button" class="btn btn-primary" onclick="confirm()" >Confirm</button>
+                    </div>
+                  </div>
+                </div>
+          </dialog> -->
+</body>
+
+                        <!-- ..................My Script................ -->
+<!-- <script src="menu.js"></script> -->
+<script>
+    //...........................................(+) Button.......................................................
+function add(x){
+       let count= x.parentElement.children[1]
+       if(count.value<5){
+        x.style.backgroundColor="brown"
+       count.value++
+       }
+       else{
+        x.style.backgroundColor="gray"
+        alert("You can order only 5 quantity per Item")
+       }
+       document.getElementById("promo").removeAttribute("disabled")
+       total(x)
+       subtotal()
+      
+}   
+//...........................................(-) Button.......................................................
+function minus(x){
+        // let mod=document.getElementById("exampleModal")
+       let count= x.parentElement.children[1]
+       let row=x.parentElement.parentElement.parentElement
+       let a=count.value
+       let red=x.nextElementSibling.nextElementSibling
+       red.style.backgroundColor="brown"
+       if(a>1){
+       count.value--
+       }else{
+        row.remove()
+        // mod.showModal();
+       }
+       document.getElementById("promo").removeAttribute("disabled")
+       total(x)
+       subtotal()
+}   
+//...........................................ADD Button.......................................................
+var sItem;
+function change(e){
+ sItem=e.options[e.selectedIndex].textContent
+}
+function addItem(){
+    if(document.getElementsByClassName("emptydiv")[0]){
+        document.getElementById("empty").children[1].remove()
+    }
+    if(sItem!=null){
+    let menu=document.getElementById("menu")
+    let price=menu.value   
+    let div=document.getElementById("productlist")
+    let newitem=document.createElement("div")
+    newitem.classList.add("del")
+    newitem.innerHTML=`
+                <div class="row pt-2 orderitems" >   
+                <div class="col-12 col-sm-5 col-md-6 itemName text-start">
+                <div class="row">
+                <div class="col-8 col-sm-7 col-md-8">
+                    <p class="pfont">${sItem}</p>
+                </div>
+                <div class="col-4 col-sm-5 col-md-4 text-center" id="price">
+                    <span>₹</span><p class="prfont" id="price">${price}</p>   
+                </div>
+            </div>   
+                </div>
+                <div class="col-8 col-sm-4 col-md-3 text-center" id="quantity">
+                    <button class="editbtn" id="minus" onclick="minus(this)">-</button>
+                    <input type="text" name="quantity" value="1" id="qunat">
+                    <button class="editbtn" id="plus" onclick="add(this)">+</button>  
+                </div>
+                <div class="col-4 col-sm-3 col-md-3 text-center" id="price">
+                <span>₹</span><p class="prfont total" id="total">${price}</p>  
+                </div>
+                </div>`
+    if(sItem!= 0){        
+    div.prepend(newitem)
+    subtotal()
+    document.getElementById("promo").removeAttribute("disabled")
+    }
+}
+}
+//...........................................Total Function.......................................................
+function total(x){
+    let a=x.parentElement
+    let b=a.nextElementSibling.children[1]
+    // let c=a.previousElementSibling.children[0].children[1].children[1]
+    let c=a.previousElementSibling.getElementsByTagName("p")[1] //can write parentElement~preEleSib
+    let price=c.textContent
+    let quantity=a.children[1].value
+    let total=price*quantity
+    b.textContent=total
+}
+//...........................................Subtotal Funcion .......................................................
+function subtotal(){
+    let x=document.getElementById("productlist")
+    let p=document.getElementById("payorder")
+    let st=document.getElementById("subtotal")
+    // let a=x.children[0].children[0].children[2].children[1]
+    let l=x.childElementCount
+    let sum=0;
+    for(let i=0;i<l;i++){
+        sum+=parseFloat(x.children[i].getElementsByClassName("total")[0].textContent)
+    }
+    st.textContent=sum;
+    p.textContent=`PAY ₹ ${sum}`
+}
+//...........................................ClearAll Button.......................................................
+let a=document.getElementById("clearall");
+a.addEventListener("click",clearall)
+function clearall(){
+    let st=document.getElementById("subtotal")
+    let l=document.getElementById("productlist").childElementCount
+    for(let i=0;i<l;i++){
+    document.getElementsByClassName("del")[0].remove()
+    subtotal()
+    }
+    if(l!=0){
+    let empty=document.createElement("div")
+    empty.innerHTML=`<p class="emptydiv" id="emptydiv">Add Items to the Cart<p>`
+    document.getElementById("empty").append(empty)
+}
+}
+//...........................................EDIT Button.......................................................
+// var newAddress;
+function edit(){
+    let a=document.getElementById("edit")
+    let b=a.textContent
+    if(b==="Edit"){
+    document.getElementById("address").removeAttribute("disabled")
+    a.textContent="Save"
+    }else{
+        document.getElementById("address").setAttribute("disabled","")
+        a.textContent="Edit"
+        
+    }
+    
+
+}
+//...........................................Offer Button.......................................................
+
+function offer(){
+    let sb=document.getElementById("subtotal")
+    let pn=document.getElementById("payorder")
+    let a=sb.textContent
+    let btn=document.getElementById("promo")
+    if(sb.textContent>159){ 
+    let subtotal=(sb.textContent*0.85).toFixed(2)
+    sb.textContent=subtotal
+    pn.innerHTML=`PAY ₹ <b>${subtotal}</b> <small><del>${a}</del></small>`
+    btn.setAttribute("disabled","")
+    }else{
+        alert("This offer is applicable on order total above ₹ 159")
+    }
+    }
+//...........................................PAY Button.......................................................
+function pay(){
+    let sb=document.getElementById("subtotal").textContent
+    if(sb>49){
+       alert(`Order Placed Successfully.\n Thank You for ordering From GO-FOOD.....Your order will Arrive Shortly.`)
+       let sec=document.getElementById("addressdetail")
+       let l=document.getElementById("productlist").childElementCount
+       const date=new Date().toLocaleString('en-GB', {timeZone: 'IST',hour12:true});
+       let htag=document.createElement("div")
+       let newAddress=document.getElementById("address").value
+       htag.classList.add("container") 
+       htag.innerHTML=`<h4>Invoice Detail (₹ ${sb})</h4>
+       <p>${date}</p>
+       <p><b>Deliver To: </b>${newAddress}</p>
+       <div class="row justify-content-center">
+           <div class="col-1">
+               <p class="invoicefont"><b>Qty</b></p>
+           </div>
+           <div class="col-6">
+              <p class="invoicefont"><b>Item</b></p> 
+           </div>
+           <div class="col-3">
+               <span>₹</span><p class="invoicefont"><b>Price</b></p>
+           </div>
+          </div>`
+          sec.append(htag)
+       let quant=0;
+       for(let i=0;i<l;i++){
+           let q =document.getElementById("productlist").children[i]
+           quant=q.getElementsByTagName("input")[0].value
+           item=q.getElementsByTagName("p")[0].textContent
+           price=q.getElementsByClassName("total")[0].textContent
+    
+       let newP=document.createElement("div");
+       newP.innerHTML=`<div class="container invoice">
+       <div class="row justify-content-center">
+           <div class="col-1">
+               <p class="invoicefont">${quant}</p>
+           </div>
+           <div class="col-6">
+              <p class="invoicefont">${item}</p> 
+           </div>
+           <div class="col-3">
+               <span>₹</span><p class="invoicefont">${price}</p>
+           </div>
+       </div>`
+       sec.append(newP)
+       }
+       clearall()
+}else{  
+    alert("order total must be over ₹ 49")
+}
+}
+//Dialoge Function
+// function confirm(x){
+//     document.getElementById("exampleModal").close()
+//     x.parentElement.parentElement.remove()
+// }
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</html>

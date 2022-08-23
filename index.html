@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon/favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon/favicon-32x32.png" type="image/x-icon">
+    <title>Order food online from GO-FOOD</title>
+    <!-- Bootstap links -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <!-- My CSS links -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navigation-wrap">
+            <div class="container"> 
+              <a class="navbar-brand" href="#"><img src="images/logo.png" width="100px"  height="100px" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="navbar-toggler-icon"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#about">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#explore-food">Explore Foods</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="Myrest.html" target="_blank"><i class="fas fa-shopping-cart"></i> Cart</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#testimonial">Reviews</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#faq">FAQ</a>
+                  </li>
+                  <li><button class="main-btn" onclick="copy(this)"><i class="fas fa-phone-alt"></i>1800 123 789</button></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <!-- Banner -->
+    <section id="home">
+      <div class="container-fluid px-0 top-banner">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-5 col-md-6">
+              <h1>Good Food Brings Good Mood</h1>
+              <p>A good restaurant is like a vacation; it transports you, and it becomes a lot more than just about the food.</p>
+              <div class="mt-4">
+                <button class="main-btn">Learn More<i class="fas fa-angle-right ps-3"></i></button>
+                <button class="white-btn ms-lg-4 mt-lg-0 mt-4"><a href="gofoodcart.html" class="onow">Order now<i class="fas fa-angle-right ps-3"></i></a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- counter Section-->
+    <section id="counter">
+      <section class="counter-section">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+              <h2>
+                <span id="count1">+</span> 
+              </h2>
+              <p>SAVINGS</p>
+            </div>
+            <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+              <h2>
+                <span id="count2"></span> 
+              </h2>
+              <p>PHOTOS</p>
+            </div>
+            <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+              <h2>
+                <span id="count3"></span> 
+              </h2>
+              <p>ROCKETS</p>
+            </div>
+            <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+              <h2>
+                <span id="count4"></span> 
+              </h2>
+              <p>GLOBES</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <!-- About Section -->
+    <section id="about">
+      <div class="about-section wrapper">
+        <h2>About Go-Food</h2>
+        <div class="container">
+          <div class="row align-item-center">
+            <div class="col-lg-7 col-md-12 mb-lg-0 mb-5">
+              <div class="card border-0">
+                <img src="images/img/img-1.png" class="img-fluid" alt="">
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12 text-secondary">
+              <h2>We Pride Ourselves on making Real food from the best ingredient</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aut sed minima obcaecati similique cam.</p>
+              <button class="main-btn mt-4">Learn More<i class="fas fa-angle-right ps-3"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="container food-type">
+          <div class="row align-item-center">
+            <div class="col-lg-5 col-md-5 text-secondary mb-lg-0 mb-5">
+              <h2>We Make Everything by hand with the best possible ingredients.</h2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia nulla quos quod officiis doloremque voluptas?</p>
+              <ul class="list-unstyled py-3">
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing </li>
+                <li>Elit Quod quis exercitationem illum expedita </li>
+                <li>Beatae nam quia non rerum</li>
+              </ul>
+              <button class="main-btn mt-4">Learn More<i class="fas fa-angle-right ps-3"></i> </button>
+            </div>
+            <div class="col-lg-7 col-md-12 mb-lg-0 mb-5">
+              <div class="card border-0">
+                <img src="images/img/img-2.png" alt="">
+              </div>
+            </div>
+         </div>
+        </div>
+      </div>
+    </section>
+    <!-- story -->
+    <section id="story">
+      <div class="story-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="text-content">
+                <h2>When a Man's stomach is hungry it makes no difference whether he is rich or poor</h2>
+                <p>Need food and a good place to eat? Welcome to our humble place where you can eat good food peacefully.</p>
+                <button class="main-btn mt-3">Read More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Explore Food -->
+    <section id="explore-food">
+      <div class="explore-food wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="text-content text-center">
+                <h2>Explore Our Food</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum vel, tempora temporibus ullam dicta ex magnam iure natus qui aperiam numquam sit at perferendis pariatur illo ut eius, eveniet quibusdam.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-5">
+            <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+              <div class="card">
+                <img src="images/img/img-3.jpg" alt="">
+                <div class="pt-3">
+                  <h4 >Goodluck Vegetable Sandwich</h4>
+                  <p>Time: 15-20 Minutes | Serves:1</p>
+                  <span>₹149 <del><small>₹299 </small></del>&nbsp; 50% off</span>
+                  <button class="white-btn mt-4"><a href="Myrest.html" class="onow">Order now</a></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+              <div class="card">
+                <img src="images/img/img-4.jpg" alt="">
+                <div class="pt-3">
+                  <h4>Veg Chef's Special Burger</h4>
+                  <p>Time: 10-25 Minutes | Serves:1</p>
+                  <span>₹149 <del><small>₹199 </small></del>&nbsp; 25% off</span>
+                  <button class="white-btn mt-4"><a href="Myrest.html" class="onow">Order now</a></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+              <div class="card">
+                <img src="images/img/img-5.jpg" alt="">
+                <div class="pt-3">
+                  <h4>Raspberry Stuffed Toast</h4>
+                  <p>Time: 12-18 Minutes | Serves:1</p>
+                  <span>₹199 <del><small>₹299 </small></del>&nbsp; 30% off</span>
+                  <button class="white-btn mt-4"><a href="Myrest.html" class="onow">Order now</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimony -->
+    <section id="testimonial">
+      <div class="testimonial-section wrapper">
+        <div class="container text-center">
+          <div class="text-center pb-4">
+            <h2>Testimonial</h2>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-lg-10 offset-lg-1">
+              <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button class="active" type="button" data-bs-target="#carouselExampleDark"
+                     data-bs-slide-to="0" aria-current="true" aria-label="slide-1"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark"
+                     data-bs-slide-to="1"  aria-label="slide-2"></button>
+                  <button  type="button" data-bs-target="#carouselExampleDark"
+                     data-bs-slide-to="2" aria-label="slide-3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="carousel-caption">
+                      <img src="images/review/review-2.jpg" alt="">
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores expedita temporibus optio sed atque accusamus.</p>
+                      <h5>John Doe - Web Devloper</h5>
+                    </div>
+                  </div> 
+                  <div class="carousel-item active">
+                    <div class="carousel-caption">
+                      <img src="images/review/review-1.jpg" alt="">
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores expedita temporibus optio sed atque accusamus.</p>
+                      <h5>John Doe - Web Devloper</h5>
+                    </div>
+                  </div> 
+                  <div class="carousel-item active">
+                    <div class="carousel-caption">
+                      <img src="images/review/review-2.jpg" alt="">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, ea ab ex voluptatibus aliquid ullam.</p>
+                      <h5>John Doe - Web Devloper</h5>
+                    </div>
+                  </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- faq -->
+    <section id="faq">
+      <div class="faq-section wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="text-center pb-4">
+                <h2>Frequetly asked Questions</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-5">
+            <div class="col-sm-6 mb-4">
+              <h4><span>~</span>Does Go-Food Bread freshly baked</h4>
+              <p>Yes, Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="col-sm-6 mb-4">
+              <h4><span>~</span>Does Go-Food Serves Fresh Food</h4>
+              <p>Yes, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="col-sm-6 mb-4">
+              <h4><span>~</span>Does Go-Food Food is healthy</h4>
+              <p>Yes, Lorem ipsum dolor, sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            </div>
+            <div class="col-sm-6 mb-4">
+              <h4><span>~</span>Does Go-Food Indian Chain</h4>
+              <p>Yes, Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- newsletter -->
+    <section id="newsletter">
+      <div class="newsletter-section wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="text-content pb-4">
+                <h2>Hurry up! Subscribe our Platinum Card and Get 50% off*</h2>
+                <p>Additional 5 Free Delivery for first two Months.<br>*Terms and Conditions Apply</p>
+              </div>
+              <form class="newsletter">
+                <div class="row">
+                  <div class="col-md-8 col-12">
+                    <input type="email" class="form-control" placeholder="Enter Your Email" name="email">
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <button class="main-btn" type="submit">Enquire</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- footer -->
+    <section id="footer">
+      <div class="footer py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <a href="#" class="footer-link">Register</a>
+              <a href="#" class="footer-link">Forum</a>
+              <a href="#" class="footer-link">Our Branches</a>
+              <a href="#" class="footer-link">FAQ</a>
+              <div class="footer-social pt-4 text-center">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-reddit"></i></a>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="footer-copy">
+                <div class="copy-right text-center pt-5">
+                  <p class="text-light">&copy; 2022. Go-Food. All rights reserved.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <!-- JavaScipt Links -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+</html>
